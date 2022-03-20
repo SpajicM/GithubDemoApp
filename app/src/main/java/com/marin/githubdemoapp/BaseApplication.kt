@@ -11,9 +11,8 @@ class BaseApplication : Application() {
         super.onCreate()
         // Start Koin
         startKoin{
-            androidLogger()
             androidContext(this@BaseApplication)
-            modules(listOf(networkModule))
+            modules(listOf(networkModule, repositoryModule, viewModelModule))
         }
     }
 }

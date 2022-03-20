@@ -1,7 +1,8 @@
-package com.marin.githubdemoapp
+package com.marin.githubdemoapp.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.marin.githubdemoapp.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

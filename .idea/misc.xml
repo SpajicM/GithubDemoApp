@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Marin/AndroidStudioProjects/GitHubDemoApp/app/src/main/res/layout/activity_main.xml" value="0.13020833333333334" />
+        <entry key="..\:/Users/Marin/AndroidStudioProjects/GitHubDemoApp/app/src/main/res/layout/fragment_author.xml" value="0.19377162629757785" />
         <entry key="..\:/Users/Marin/AndroidStudioProjects/GitHubDemoApp/app/src/main/res/layout/fragment_search.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Marin/AndroidStudioProjects/GitHubDemoApp/app/src/main/res/layout/item_search.xml" value="0.24295432458697766" />
       </map>

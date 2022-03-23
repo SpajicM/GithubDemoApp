@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.marin.githubdemoapp.R
 import com.marin.githubdemoapp.adapters.SearchListAdapter
@@ -43,10 +45,11 @@ class SearchFragment : BaseFragment(R.layout.fragment_search) {
             }
 
             override fun onAuthorClick(item: Repo) {
-                // TODO
+                val bundle = bundleOf(USER_ID to item.owner.id)
+                findNavController().navigate(R.id.action_searchFragment_to_authorFragment, bundle)
             }
 
-        } )
+        })
 
         binding.rvSearch.adapter = searchListAdapter
     }
@@ -66,5 +69,9 @@ class SearchFragment : BaseFragment(R.layout.fragment_search) {
                 }
             }
         }
+    }
+
+    companion object {
+        const val USER_ID = "USER_ID"
     }
 }

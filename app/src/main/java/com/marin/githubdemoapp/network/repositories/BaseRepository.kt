@@ -1,5 +1,6 @@
 package com.marin.githubdemoapp.network.repositories
 
+import android.util.Log
 import com.marin.githubdemoapp.utils.Result
 import retrofit2.Response
 
@@ -18,6 +19,7 @@ abstract class BaseRepository {
     }
 
     private fun <T> error(message: String): Result<T> {
+        Log.e("Network call error: ", message)
         return Result.Error(Exception("Network call has failed: $message"))
     }
 }

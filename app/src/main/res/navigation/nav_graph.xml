@@ -7,5 +7,13 @@
     <fragment
         android:id="@+id/searchFragment"
         android:name="com.marin.githubdemoapp.fragments.SearchFragment"
-        android:label="SearchFragment" />
+        android:label="SearchFragment" >
+        <action
+            android:id="@+id/action_searchFragment_to_authorFragment"
+            app:destination="@id/authorFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/authorFragment"
+        android:name="com.marin.githubdemoapp.fragments.AuthorFragment"
+        android:label="AuthorFragment" />
 </navigation>

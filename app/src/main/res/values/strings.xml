@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">GitHubDemoApp</string>
+    <string name="email">Email: %s</string>
+    <string name="company">Company: %s</string>
+    <string name="location">Location: %s</string>
+    <string name="bio">Bio: %s</string>
+    <string name="gists">Gists: %s</string>
+    <string name="followers">Followers: %s</string>
+    <string name="following">Following: %s</string>
+    <string name="name">Name: %s</string>
+    <string name="repos">Repos: %s</string>
+    <string name="open_profile_in_browser">Open profile in browser</string>
 </resources>

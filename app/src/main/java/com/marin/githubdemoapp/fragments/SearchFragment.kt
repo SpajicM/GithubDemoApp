@@ -41,7 +41,8 @@ class SearchFragment : BaseFragment(R.layout.fragment_search) {
 
         searchListAdapter = SearchListAdapter(object: SearchListAdapter.OnSearchItemClick {
             override fun onItemClick(item: Repo) {
-                // TODO
+                val bundle = bundleOf(OWNER to item.owner.login, REPO_NAME to item.name)
+                findNavController().navigate(R.id.action_searchFragment_to_repoFragment, bundle)
             }
 
             override fun onAuthorClick(item: Repo) {
@@ -73,5 +74,7 @@ class SearchFragment : BaseFragment(R.layout.fragment_search) {
 
     companion object {
         const val USER_ID = "USER_ID"
+        const val OWNER = "OWNER"
+        const val REPO_NAME = "REPO_NAME"
     }
 }

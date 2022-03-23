@@ -9,5 +9,13 @@
     <string name="following">Following: %s</string>
     <string name="name">Name: %s</string>
     <string name="repos">Repos: %s</string>
+    <string name="description">Description: %s</string>
+    <string name="stargazers">Stargazers: %s</string>
+    <string name="language">Language: %s</string>
+    <string name="watchers">Watchers: %s</string>
+    <string name="homepage">Homepage: %s</string>
+    <string name="open_issues">Open issues: %s</string>
+    <string name="forks">Forks: %s</string>
     <string name="open_profile_in_browser">Open profile in browser</string>
+    <string name="open_repo_in_browser">Open repository in browser</string>
 </resources>

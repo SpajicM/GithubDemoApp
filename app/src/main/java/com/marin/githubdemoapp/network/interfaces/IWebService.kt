@@ -13,4 +13,6 @@ interface IWebService {
     suspend fun getRepositories(@Query("q") searchQuery: String) : Response<ListResponse<Repo>>
     @GET("user/{userId}")
     suspend fun getUser(@Path("userId") userId: Int) : Response<User>
+    @GET("repos/{owner}/{repo}")
+    suspend fun getRepo(@Path("owner") owner: String, @Path("repo") repoName: String): Response<Repo>
 }

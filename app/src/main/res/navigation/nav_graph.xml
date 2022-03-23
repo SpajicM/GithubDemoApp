@@ -11,9 +11,16 @@
         <action
             android:id="@+id/action_searchFragment_to_authorFragment"
             app:destination="@id/authorFragment" />
+        <action
+            android:id="@+id/action_searchFragment_to_repoFragment"
+            app:destination="@id/repoFragment" />
     </fragment>
     <fragment
         android:id="@+id/authorFragment"
         android:name="com.marin.githubdemoapp.fragments.AuthorFragment"
         android:label="AuthorFragment" />
+    <fragment
+        android:id="@+id/repoFragment"
+        android:name="com.marin.githubdemoapp.fragments.RepoFragment"
+        android:label="RepoFragment" />
 </navigation>

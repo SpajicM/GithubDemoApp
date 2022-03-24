@@ -1,5 +1,8 @@
 package com.marin.githubdemoapp.fragments
 
+import android.app.Activity
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -7,6 +10,8 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.SpinnerAdapter
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.os.bundleOf
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -14,9 +19,13 @@ import com.marin.githubdemoapp.R
 import com.marin.githubdemoapp.adapters.SearchListAdapter
 import com.marin.githubdemoapp.databinding.FragmentSearchBinding
 import com.marin.githubdemoapp.entities.api.Repo
+import com.marin.githubdemoapp.utils.Constants
 import com.marin.githubdemoapp.utils.Result
 import com.marin.githubdemoapp.viewmodels.SearchViewModel
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
+import android.widget.Toast
+import net.openid.appauth.*
+
 
 class SearchFragment : BaseFragment(R.layout.fragment_search) {
 
@@ -24,6 +33,7 @@ class SearchFragment : BaseFragment(R.layout.fragment_search) {
     private val viewModel: SearchViewModel by sharedViewModel()
     private lateinit var searchListAdapter: SearchListAdapter
     private lateinit var spinnerAdapter: SpinnerAdapter
+    private lateinit var oauthLauncher: ActivityResultLauncher<Intent>
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -33,6 +43,17 @@ class SearchFragment : BaseFragment(R.layout.fragment_search) {
         binding = FragmentSearchBinding.inflate(inflater, container, false)
         binding.viewModel = viewModel
         binding.lifecycleOwner = viewLifecycleOwner
+
+        oauthLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+            if (result.resultCode == Activity.RESULT_OK) {
+                val data: Intent? = result.data
+                val resp = data?.let { AuthorizationResponse.fromIntent(it) }
+
+                if(resp != null) {
+                  Toast.makeText(requireContext(), "Logged in! " + resp.authorizationCode, Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
 
 
         return binding.root
@@ -84,6 +105,10 @@ class SearchFragment : BaseFragment(R.layout.fragment_search) {
         binding.button.setOnClickListener {
             viewModel.getRepos()
         }
+
+        binding.fab.setOnClickListener {
+            login()
+        }
     }
 
     override fun setupObservers() {
@@ -95,6 +120,28 @@ class SearchFragment : BaseFragment(R.layout.fragment_search) {
                 }
             }
         }
+    }
+
+    private fun login() {
+        val serviceConfig = AuthorizationServiceConfiguration(
+            Uri.parse(Constants.OAUTH_AUTHORIZE_URL),
+            Uri.parse(Constants.OAUTH_TOKEN_URL))
+
+        val clientId = Constants.OAUTH_CLIENT_ID
+        val redirectUri = Uri.parse(Constants.REDIRECT_URI)
+        val builder = AuthorizationRequest.Builder(
+            serviceConfig,
+            clientId,
+            ResponseTypeValues.CODE,
+            redirectUri
+        )
+
+        val authRequest = builder.build()
+
+        val authService = AuthorizationService(requireContext())
+        val authIntent = authService.getAuthorizationRequestIntent(authRequest)
+
+        oauthLauncher.launch(authIntent)
     }
 
     companion object {

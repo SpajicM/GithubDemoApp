@@ -6,7 +6,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.marin.githubdemoapp.utils.Result
 
-abstract class BaseFragment(private val layout: Int) : Fragment(layout) {
+abstract class BaseFragment(layout: Int) : Fragment(layout) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 

@@ -27,94 +27,113 @@
 
         <TextView
             android:id="@+id/tv_name"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="48dp"
+            android:layout_marginEnd="16dp"
             android:text="@{viewModel.user.name ?? viewModel.user.login}"
             android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/imageView"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/tv_email"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
             android:text="@{viewModel.user.email}"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/imageView"
             app:layout_constraintTop_toBottomOf="@+id/tv_name" />
 
         <TextView
             android:id="@+id/tv_company"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
             android:layout_marginTop="32dp"
+            android:layout_marginEnd="32dp"
             android:text="@{@string/company(viewModel.user.company ?? `No data`)}"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
         <TextView
             android:id="@+id/tv_location"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
             android:layout_marginTop="16dp"
+            android:layout_marginEnd="32dp"
             android:text="@{@string/location(viewModel.user.location ?? `No data`)}"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_company" />
 
         <TextView
             android:id="@+id/tv_bio"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
             android:layout_marginTop="16dp"
-            android:maxWidth="320dp"
+            android:layout_marginEnd="32dp"
             android:text="@{@string/bio(viewModel.user.bio ?? `No data`)}"
+            android:maxLines="4"
+            android:ellipsize="end"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_location" />
 
         <TextView
             android:id="@+id/tv_repos"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
             android:layout_marginTop="16dp"
+            android:layout_marginEnd="32dp"
             android:maxWidth="320dp"
             android:text="@{@string/repos(viewModel.user.public_repos)}"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_bio" />
 
         <TextView
             android:id="@+id/tv_gists"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
             android:layout_marginTop="16dp"
+            android:layout_marginEnd="32dp"
             android:text="@{@string/gists(viewModel.user.public_gists)}"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_repos" />
 
         <TextView
             android:id="@+id/tv_followers"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
             android:layout_marginTop="16dp"
+            android:layout_marginEnd="32dp"
             android:text="@{@string/followers(viewModel.user.followers)}"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_gists" />
 
         <TextView
             android:id="@+id/tv_following"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
             android:layout_marginTop="16dp"
+            android:layout_marginEnd="32dp"
             android:text="@{@string/following(viewModel.user.following)}"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_followers" />
 

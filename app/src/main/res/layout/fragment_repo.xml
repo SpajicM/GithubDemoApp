@@ -26,94 +26,111 @@
 
         <TextView
             android:id="@+id/tv_name"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="48dp"
+            android:ellipsize="end"
             android:text="@{viewModel.repo.name}"
             android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/imageView"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/tv_full_name"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:text="@{viewModel.repo.full_name}"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/imageView"
             app:layout_constraintTop_toBottomOf="@+id/tv_name" />
 
         <TextView
             android:id="@+id/tv_language"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
             android:layout_marginTop="32dp"
             android:text="@{@string/language(viewModel.repo.language ?? `No data`)}"
+            app:layout_constraintEnd_toStartOf="@+id/tv_url"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
         <TextView
             android:id="@+id/tv_homepage"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
             android:layout_marginTop="16dp"
+            android:layout_marginEnd="32dp"
             android:maxWidth="320dp"
             android:text="@{@string/homepage(viewModel.repo.homepage ?? `No data`)}"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_language" />
 
         <TextView
             android:id="@+id/tv_description"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
             android:layout_marginTop="16dp"
-            android:maxWidth="320dp"
+            android:layout_marginEnd="32dp"
+            android:maxLines="4"
+            android:ellipsize="end"
             android:text="@{@string/description(viewModel.repo.description ?? `No data`)}"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_homepage" />
 
         <TextView
             android:id="@+id/tv_stargazers"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
             android:layout_marginTop="16dp"
+            android:layout_marginEnd="32dp"
             android:text="@{@string/stargazers(viewModel.repo.stargazers_count)}"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_description" />
 
         <TextView
             android:id="@+id/watchers"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
             android:layout_marginTop="16dp"
+            android:layout_marginEnd="32dp"
             android:text="@{@string/watchers(viewModel.repo.watchers_count)}"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_stargazers" />
 
         <TextView
             android:id="@+id/tv_open_issues"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
             android:layout_marginTop="16dp"
+            android:layout_marginEnd="32dp"
             android:text="@{@string/open_issues(viewModel.repo.open_issues_count)}"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/watchers" />
 
         <TextView
             android:id="@+id/tv_forks"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
             android:layout_marginTop="16dp"
+            android:layout_marginEnd="32dp"
             android:text="@{@string/forks(viewModel.repo.forks)}"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_open_issues" />
 
